@@ -301,7 +301,8 @@ public class SegmentedTimelineTest {
         // verify attributes set during object construction
         assertEquals(SegmentedTimeline.DAY_SEGMENT_SIZE,
                 this.mondayFridayTimeline.getSegmentSize());
-        assertEquals(SegmentedTimeline.FIRST_MONDAY_AFTER_1900,
+        // Changed this line from original code to not use a deprecated method!!
+        assertEquals(SegmentedTimeline.firstMondayAfter1900(),
                 this.mondayFridayTimeline.getStartTime());
         assertEquals(5, this.mondayFridayTimeline.getSegmentsIncluded());
         assertEquals(2, this.mondayFridayTimeline.getSegmentsExcluded());
@@ -315,7 +316,9 @@ public class SegmentedTimelineTest {
     public void testFifteenMinSegmentedTimeline() {
         assertEquals(SegmentedTimeline.FIFTEEN_MINUTE_SEGMENT_SIZE,
                 this.fifteenMinTimeline.getSegmentSize());
-        assertEquals(SegmentedTimeline.FIRST_MONDAY_AFTER_1900 + 36
+        
+        // Changed this line from original code to not use a deprecated method!!
+        assertEquals(SegmentedTimeline.firstMondayAfter1900() + 36
                 * this.fifteenMinTimeline.getSegmentSize(),
                 this.fifteenMinTimeline.getStartTime());
         assertEquals(28, this.fifteenMinTimeline.getSegmentsIncluded());
